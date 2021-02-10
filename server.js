@@ -19,6 +19,8 @@ app.post('/payer', async(req,res) => {
       
 })
 
+app.listen('4567')
+
 
 // app.get('/', async(req, res) => {
 // try {
@@ -29,4 +31,3 @@ app.post('/payer', async(req,res) => {
 // }    
 // })
 
-app.listen('4567')
