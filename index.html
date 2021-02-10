@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form action="postPayer.js: postPayer()">
+            cnpjSh:<input type="text" name="cnpjsh" placeholder="cnpj Software House" id="cnpjsh"> <br>
+            tokenSh:<input type="text" name="tokensh" placeholder="token Software House" id="tokensh"> <br>
+            Json:<textarea id="txtJason" name="txtJason"
+            rows="50" cols="33"></textarea>
+            <!-- name: <input type="text" name="name" id="name">  <br>  
+            cpfCnpj: <input type="text" name="cpfCnpj" id="cpfcnpj"> <br>
+            zipcode: <input type="text" name="zipcode" id="zipcode"> <br>
+            state: <input type="text" name="state" id="state"> <br> 
+            city: <input type="text" name="city" id="city"> <br>
+            addressNumber: <input type="text" name="addressNumber" id="addressNumber"> <br>
+            neighborhood: <input type="text" name="neighborhood" id="neighborhood"> <br>
+            street: <input type="text" name="street" id="street"> <br> -->
+             
+            <button onclick=postPayer()  type="submit" >salvar</button>  
+        </form>    
+        <!-- <form action= "postPayer.js: testar()" id="form" >
+            <div>
+              <input type="text" name="cnpjsh" placeholder="cnpj Software House" id="cnpjsh">
+              <input type="text" name="tokensh" placeholder="token Software House" id="tokensh">
+            </div>
+            <div>
+              <textarea id="json" rows="30" cols="100" placeholder="Json"></textarea>
+            </div>
+            <button onclick="testar()"  type="submit" >salvar</button>
+        </form> -->
+    </main>
+</body>
+
+<script type="text/javascript" src="postPayer.js"></script>
+</html>
