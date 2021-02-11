@@ -6,18 +6,18 @@ async function postPayer(){
     const header = new Headers();
     header.append("cnpjsh", cnpj)
     header.append("tokensh", token)
-  
+    header.append("Accept", "application/json")
+    header.append("Content-Type", "application/json")
+
+    console.log(textoTeste)
     const options = {
       method: "POST",
-      body: {
-        payer: textoTeste
-      },
+      body: JSON.stringify(textoTeste),
       headers: header
     }
-  
+    console.log('request')
     const response = await fetch("http://localhost:4567/payer", options)
-    console.log(response.data)
-  
+    console.log(response)
   }
 
 function testar(){
