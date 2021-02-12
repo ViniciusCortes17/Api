@@ -1,6 +1,6 @@
 const axios = require('axios')
 
-const storePayer = async (req, res) => {
+const postRemittance = async (req, res) => {
     try {
         const { cnpjsh, tokensh } = req.headers
 
@@ -9,7 +9,7 @@ const storePayer = async (req, res) => {
         const body = req.body
         const options = {
             method: 'post',
-            url: 'https://staging.pagamentobancario.com.br/api/v1/payer',
+            url: 'https://staging.pagamentobancario.com.br/api/v1/remittance',
             headers: {
                 cnpjsh,
                 tokensh
@@ -31,14 +31,14 @@ const storePayer = async (req, res) => {
     }
 }
 
-const getPayer = async (req, res) => {
+const getRemittance = async (req, res) => {
     try {
-        const { cnpjsh, tokensh, payercpfcnpj } = req.headers
-        if(!cnpjsh || !tokensh || !payercpfcnpj) throw Error('Necessário informar o cnpj e token da sh!')
+        const { cnpjsh, tokensh, payercpfcnpj, uniqueId} = req.headers
+        if(!cnpjsh || !tokensh || !payercpfcnpj || !uniqueId) throw Error('Necessário informar o cnpj e token da sh!')
 
         const options = {
             method: 'get',
-            url: 'https://staging.pagamentobancario.com.br/api/v1/payer',
+            url: 'https://staging.pagamentobancario.com.br/api/v1/remittance/' + uniqueId,
             headers: {
                 cnpjsh,
                 tokensh,
@@ -60,4 +60,4 @@ const getPayer = async (req, res) => {
     }
 }
 
-module.exports = {storePayer, getPayer}
+module.exports = {postRemittance, getRemittance}

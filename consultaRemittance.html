@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="login-box">
-        <h2>Consultar Pagador</h2>
+        <h2>Consulta de remessa</h2>
         <form>
           <div class="user-box">
             <input type="text" name="cnpjsh" placeholder="cnpj Software House" id="cnpjsh">
@@ -20,18 +20,22 @@
             <label>Token-SH</label>
           </div>
           <div class="user-box">
-            <input type="text" name="payercpfcnpj" placeholder="payer cpf/cnpj" id="payercpfcnpj"">
+            <input type="text" name="payercpfcnpj" placeholder="payer cpf/cnpj" id="payercpfcnpj">
             <label>Cpf/Cnpj do pagador</label>
           </div>
-          <a href="#">
+          <div class="user-box">
+            <input type="text" name="uniqueId" placeholder="uniqueId" id="uniqueId">
+            <label>uniqueId</label>
+          </div>
+          <a href="#" onclick=getRemittance() type="submit">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
-            <button type="submit" >Consultar</button>
+            Consultar
           </a>
         </form>
       </div>
 </body>
+<script type="text/javascript" src="postPayer.js"></script>
 </html>
-
