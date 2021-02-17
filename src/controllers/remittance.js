@@ -1,10 +1,10 @@
 const axios = require('axios')
 
-const postRemittance = async (req, res) => {
+const storeRemittance = async (req, res) => {
     try {
-        const { cnpjsh, tokensh } = req.headers
+        const { cnpjsh, tokensh, payercpfcnpj} = req.headers
 
-        if(!cnpjsh || !tokensh) throw Error('Necessário informar o cnpj e token da sh!')
+        if(!cnpjsh || !tokensh || !payercpfcnpj) throw Error('Necessário informar o cnpj e token da sh!')
 
         const body = req.body
         const options = {
@@ -12,11 +12,14 @@ const postRemittance = async (req, res) => {
             url: 'https://staging.pagamentobancario.com.br/api/v1/remittance',
             headers: {
                 cnpjsh,
-                tokensh
+                tokensh,
+                payercpfcnpj
             },
             data: body
         }
         const response = await axios(options)
+
+        console.log(response.data)
  
         return res.json({
             resposta:'ok',
@@ -28,6 +31,7 @@ const postRemittance = async (req, res) => {
             error: true,
             message: error.message
         })
+        
     }
 }
 
@@ -52,12 +56,8 @@ const getRemittance = async (req, res) => {
             data: response.data
         })
     } catch (error) {
-
-        return res.json({
-            error: true,
-            message: error.message
-        })
-    }
+        console.log(error)
+}
 }
 
-module.exports = {postRemittance, getRemittance}
+module.exports = {storeRemittance, getRemittance}

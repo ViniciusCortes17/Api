@@ -6,6 +6,7 @@ const Account = require('./controllers/account')
 const Transfer = require('./controllers/transfer')
 const Billet = require('./controllers/billet')
 const Remittance = require('./controllers/remittance')
+const Reconciliation = require('./controllers/reconciliation')
 const { route } = require('./server')
 
 //Payer
@@ -22,9 +23,12 @@ routes.post('/transfer', Transfer.paymentTransfer)
 //Billet
 routes.post('/billet', Billet.paymentBillet)
 
-//remittance
-routes.post('/remittance', Remittance.postRemittance)
+//Remittance
+routes.post('/remittance', Remittance.storeRemittance)
 routes.get('/remittance', Remittance.getRemittance)
+
+//Reconciliation
+routes.get('/reconciliation', Reconciliation.getReconciliation)
 
 
 

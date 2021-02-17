@@ -165,3 +165,18 @@ html {
       bottom: 100%;
     }
   }
+
+  .login-box .user-box h3{
+    margin: 15 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center
+  }
+
+  .login-box .user-box p{
+    top: -20px;
+    left: 0;
+    color: #03e9f4;
+    font-size: 12px;
+    max-width: 40px;
+  }

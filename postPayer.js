@@ -17,7 +17,12 @@ async function postPayer(){
     }
     console.log('request')
     const response = await fetch("http://localhost:4567/payer", options)
-    console.log(response)
+    const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
   }
 
 
@@ -39,9 +44,12 @@ async function getPayer(){
     }
 
     const response = await fetch("http://localhost:4567/payer", options)
-    console.log(response)
-
-
+    const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 }  
 
 async function postAccount(){
@@ -65,7 +73,12 @@ async function postAccount(){
   }
   console.log('request')
   const response = await fetch("http://localhost:4567/account", options)
-  console.log(response)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 }
 
 
@@ -87,7 +100,12 @@ async function getAccount(){
   }
 
   const response = await fetch("http://localhost:4567/account", options)
-  console.log(response)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 
 
 }  
@@ -113,8 +131,12 @@ async function postTransfer(){
   }
   console.log('request')
   const response = await fetch("http://localhost:4567/transfer", options)
-  console.log(response)
-}
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 
 async function postBillet(){
   const cnpj = document.getElementById('cnpjsh').value
@@ -137,7 +159,12 @@ async function postBillet(){
   }
   console.log('request')
   const response = await fetch("http://localhost:4567/transfer", options)
-  console.log(response)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 }
 
 async function postRemittance(){
@@ -161,7 +188,12 @@ async function postRemittance(){
   }
   console.log('request')
   const response = await fetch("http://localhost:4567/remittance", options)
-  console.log(response)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 }
 
 async function getRemittance(){
@@ -184,10 +216,50 @@ async function getRemittance(){
   }
 
   const response = await fetch("http://localhost:4567/remittance", options)
-  console.log(response)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
 
 
-}  
+}
+
+async function getReconciliation(){
+  const cnpj = document.getElementById('cnpjsh').value
+  const token = document.getElementById('tokensh').value
+  const payercpfcnpj = document.getElementById('payercpfcnpj').value
+  const uniqueId = document.getElementById('uniqueId').value
+
+  const header = new Headers();
+  header.append("cnpjsh", cnpj)
+  header.append("tokensh", token)
+  header.append("payercpfcnpj", payercpfcnpj)
+  header.append("uniqueId", uniqueId)
+  header.append("Accept", "application/json")
+  header.append("Content-Type", "application/json")
+
+  const options = {
+    method: "get",
+    headers: header
+  }
+
+  const response = await fetch("http://localhost:4567/reconciliation", options)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
+
+} 
+}
+
+
+
+
+
 
 
   

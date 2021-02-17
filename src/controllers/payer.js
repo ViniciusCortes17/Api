@@ -17,6 +17,7 @@ const storePayer = async (req, res) => {
             data: body
         }
         const response = await axios(options)
+        
  
         return res.json({
             resposta:'ok',
@@ -46,6 +47,7 @@ const getPayer = async (req, res) => {
             },
         }
         const response = await axios(options)
+        console.log(response)
 
         return res.json({
             resposta:'ok',
