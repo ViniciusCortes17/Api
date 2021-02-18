@@ -138,6 +138,8 @@ async function postTransfer(){
     console.log(data)
     document.getElementById('response').innerHTML = txt
 
+}
+
 async function postBillet(){
   const cnpj = document.getElementById('cnpjsh').value
   const token = document.getElementById('tokensh').value
@@ -166,6 +168,7 @@ async function postBillet(){
     console.log(data)
     document.getElementById('response').innerHTML = txt
 }
+
 
 async function postRemittance(){
   const cnpj = document.getElementById('cnpjsh').value
@@ -214,7 +217,7 @@ async function getRemittance(){
     method: "get",
     headers: header
   }
-
+  console.log('teste')
   const response = await fetch("http://localhost:4567/remittance", options)
   const retorno = await response.json()
     const data = retorno.data
@@ -254,7 +257,7 @@ async function getReconciliation(){
     document.getElementById('response').innerHTML = txt
 
 } 
-}
+
 
 
 
