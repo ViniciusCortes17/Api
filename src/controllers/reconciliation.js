@@ -1,40 +1,41 @@
 const axios = require('axios')
-//var FormData = require('form-data')
-var fs = require('fs')
+const FormData = require('form-data')
+const fs = require('fs')
+const path = require('path')
 
 const postReconciliation = async (req, res) => {
-    console.log('teste')
     try {
         const { cnpjsh, tokensh, payercpfcnpj} = req.headers
 
         if(!cnpjsh || !tokensh || !payercpfcnpj) throw Error('Necessário informar o cnpj e token da sh!')
 
 
-        const body = req.body
-       // var data = new FormData()
-        //data.append('teste01',fs.createReadStream('C:/Users/vinih/Desktop/testando/new 1.txt'))
-        console.log(body)
+        const body = req.file
+        const formData = new FormData()
+
+        formData.append('file', fs.createReadStream(path.resolve(__dirname, `../../uploads/${body.filename}`)))
+
         const options = {
             method: 'post',
             url: 'https://staging.pagamentobancario.com.br/api/v1/reconciliation',
             headers: {
                 cnpjsh,
                 tokensh,
-                payercpfcnpj
+                payercpfcnpj,
+                'content-type': 'multipart/form-data',
+                ...formData.getHeaders()
             },
-            data: body
+            data: formData
 
         }
-        const response = {data: 'ok'}// await axios(options)
-
-        console.log(JSON.stringify(response.data))
+        const response = await axios(options)
  
         return res.json({
             resposta:'ok',
             data: response.data
         })
     } catch (error) {
-
+        console.log(error)
         return res.json({
             error: true,
             message: error.message

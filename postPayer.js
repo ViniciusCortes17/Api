@@ -236,7 +236,7 @@ async function postReconciliation(){
   const file = document.getElementById('arquivo').files[0]
 
   const formData1 = new FormData()
-  formData1.append('arquivo', file)
+  formData1.append('arquivo', file, file.name)
 
   console.log(file)  
 
@@ -244,7 +244,6 @@ async function postReconciliation(){
   header.append("cnpjsh", cnpj)
   header.append("tokensh", token)
   header.append("payercpfcnpj", payercpfcnpj)
-  header.append("Content-Type", "multipart/form-data")
 
   
   const options = {
