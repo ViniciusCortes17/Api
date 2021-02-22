@@ -1,8 +1,9 @@
 const axios = require('axios')
-var FormData = require('form-data')
+//var FormData = require('form-data')
 var fs = require('fs')
 
 const postReconciliation = async (req, res) => {
+    console.log('teste')
     try {
         const { cnpjsh, tokensh, payercpfcnpj} = req.headers
 
@@ -10,8 +11,8 @@ const postReconciliation = async (req, res) => {
 
 
         const body = req.body
-          var data = new FormData()
-          data.append('teste01',fs.createReadStream('C:/Users/vinih/Desktop/testando/new 1.txt'))
+       // var data = new FormData()
+        //data.append('teste01',fs.createReadStream('C:/Users/vinih/Desktop/testando/new 1.txt'))
         console.log(body)
         const options = {
             method: 'post',
@@ -21,10 +22,10 @@ const postReconciliation = async (req, res) => {
                 tokensh,
                 payercpfcnpj
             },
-            data: data
+            data: body
 
         }
-        const response = await axios(options)
+        const response = {data: 'ok'}// await axios(options)
 
         console.log(JSON.stringify(response.data))
  
