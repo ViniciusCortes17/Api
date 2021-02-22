@@ -229,6 +229,40 @@ async function getRemittance(){
 
 }
 
+async function postReconciliation(){
+  const cnpj = document.getElementById('cnpjsh').value
+  const token = document.getElementById('tokensh').value
+  const payercpfcnpj = document.getElementById('payercpfcnpj').value
+  const file = document.getElementById('arquivo')
+
+  const formData = new FormData()
+  formData.append(file,"C:/Users/vinih/Desktop/testando/new 1.txt")
+  
+
+  const header = new Headers();
+  header.append("cnpjsh", cnpj)
+  header.append("tokensh", token)
+  header.append("payercpfcnpj", payercpfcnpj)
+  header.append("Accept", "application/json, application/xml, text/plain, text/html, *.*")
+  header.append("Content-Type", "multipart/form-data")
+
+  
+  const options = {
+    method: "POST",
+    body: formData,
+    headers: header,
+   // redirect: 'follow'
+  }
+  
+  const response = await fetch("http://localhost:4567/reconciliation", options)
+  const retorno = await response.json()
+    const data = retorno.data
+    const obj = data
+    let txt = JSON.stringify(obj)
+    console.log(data)
+    document.getElementById('response').innerHTML = txt
+}
+
 async function getReconciliation(){
   const cnpj = document.getElementById('cnpjsh').value
   const token = document.getElementById('tokensh').value

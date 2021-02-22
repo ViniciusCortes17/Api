@@ -28,6 +28,7 @@ routes.post('/remittance', Remittance.storeRemittance)
 routes.get('/remittance', Remittance.getRemittance)
 
 //Reconciliation
+routes.post('./reconciliation', Reconciliation.postReconciliation)
 routes.get('/reconciliation', Reconciliation.getReconciliation)
 
 
