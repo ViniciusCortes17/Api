@@ -2,7 +2,10 @@ const axios = require('axios')
 const FormData = require('form-data')
 const fs = require('fs')
 const path = require('path')
+<<<<<<< HEAD
 const { stringify } = require('querystring')
+=======
+>>>>>>> eaa1a0b7a353052018b5f485f6037d8f89452b21
 
 const postReconciliation = async (req, res) => {
     try {
