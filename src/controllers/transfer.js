@@ -27,5 +27,4 @@ const paymentTransfer = async (req, res) => {
     }
 }
 
-
 module.exports = {paymentTransfer}

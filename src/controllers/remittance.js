@@ -38,17 +38,16 @@ const storeRemittance = async (req, res) => {
 
 const getRemittance = async (req, res) => {
     try {
-        const { cnpjsh, tokensh, payercpfcnpj, uniqueId} = req.headers
-        if(!cnpjsh || !tokensh || !payercpfcnpj || !uniqueId) throw Error('Necessário informar o cnpj e token da sh!')
+        const { cnpjsh, tokensh, payercpfcnpj, uniqueid} = req.headers
+        if(!cnpjsh || !tokensh || !payercpfcnpj || !uniqueid) throw Error('Necessário informar o cnpj e token da sh!')
 
         const options = {
             method: 'get',
-            url: 'https://staging.pagamentobancario.com.br/api/v1/remittance/' + uniqueId,
+            url: 'https://staging.pagamentobancario.com.br/api/v1/remittance/' + uniqueid,
             headers: {
                 cnpjsh,
                 tokensh,
-                payercpfcnpj,
-                uniqueId
+                payercpfcnpj
             },
         }
         const response = await axios(options)

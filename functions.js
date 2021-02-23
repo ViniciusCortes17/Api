@@ -203,13 +203,14 @@ async function getRemittance(){
   const cnpj = document.getElementById('cnpjsh').value
   const token = document.getElementById('tokensh').value
   const payercpfcnpj = document.getElementById('payercpfcnpj').value
-  const uniqueId = document.getElementById('uniqueId').value
+  const uniqueid = document.getElementById('uniqueId').value
+  
 
   const header = new Headers();
   header.append("cnpjsh", cnpj)
   header.append("tokensh", token)
   header.append("payercpfcnpj", payercpfcnpj)
-  header.append("uniqueId", uniqueId)
+  header.append("uniqueid", uniqueid)
   header.append("Accept", "application/json")
   header.append("Content-Type", "application/json")
 
@@ -236,7 +237,7 @@ async function postReconciliation(){
   const file = document.getElementById('arquivo').files[0]
 
   const formData1 = new FormData()
-  formData1.append('arquivo', file)
+  formData1.append('arquivo', file, file.name)
 
   console.log(file)  
 
@@ -244,7 +245,6 @@ async function postReconciliation(){
   header.append("cnpjsh", cnpj)
   header.append("tokensh", token)
   header.append("payercpfcnpj", payercpfcnpj)
-  header.append("Content-Type", "multipart/form-data")
 
   
   const options = {
@@ -267,12 +267,13 @@ async function getReconciliation(){
   const token = document.getElementById('tokensh').value
   const payercpfcnpj = document.getElementById('payercpfcnpj').value
   const uniqueId = document.getElementById('uniqueId').value
+  console.log(uniqueId)
 
   const header = new Headers();
   header.append("cnpjsh", cnpj)
   header.append("tokensh", token)
   header.append("payercpfcnpj", payercpfcnpj)
-  header.append("uniqueId", uniqueId)
+  header.append("uniqueid", uniqueId)
   header.append("Accept", "application/json")
   header.append("Content-Type", "application/json")
 

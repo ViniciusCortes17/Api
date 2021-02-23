@@ -181,10 +181,6 @@ html {
     max-width: 40px;
   }
 
-  input[type="file"]{
-    
-  }
-
 .file label{
   top: -20px;
     left: 0;
